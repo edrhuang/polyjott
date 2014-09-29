@@ -1,3 +1,24 @@
-<h1>Welcome to PolyJott</h1>
-<%= link_to 'So you want some notes eh?', controller: 'notes' %>
-<%= link_to 'Create a new Note', new_note_path %>
+<%= render 'notes/navigation' %>
+<div class="jumbotron">
+	<div class="container">
+		<h1>Hello, there!</h1>
+		<p>Welcome to Polyjott. Share your notes and class resources.</p>
+		<button type="button" class="btn btn-success">
+			<%= link_to 'So you want some notes eh?', controller: 'notes' %>
+		</button>
+  	</div>
+</div>
+
+<div class="container">
+	<h1>Start creating your notes</h1>
+
+
+	<section>
+		<button type="button" class="btn btn-info">
+		<%= link_to 'Create a new Note', new_note_path %>
+		</button>
+	</section>
+	 
+
+	
+</div>

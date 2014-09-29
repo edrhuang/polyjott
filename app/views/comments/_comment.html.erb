@@ -1,0 +1,19 @@
+<div class="panel panel-info">
+	<div class="panel-heading">
+		<h3 class="panel-title"><%= comment.comenter %></h3> 
+	</div>
+	<div class="panel-body">
+		<section>
+			<%= comment.body %>
+		</section>
+
+		<section>
+			<%= link_to 'Delete Comment', [comment.note, comment],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+		</section>
+		
+		
+	</div>
+
+</div>
