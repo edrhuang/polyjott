@@ -9,5 +9,34 @@
   <%= @note.body %>
 </p>
 
+<h2>Comments</h2>
+<% @note.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.comenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+ 
+<h2>Add a comment:</h2>
+<%= form_for([@note, @note.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :comenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit Note', edit_note_path(@note) %>
 <%= link_to 'Back', notes_path %>
 </div>

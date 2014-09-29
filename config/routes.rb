@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   root 'welcome#index'
   
   resources :notes do
+    resources :comments
       member do
         post 'upvote'
-      
       end
   end
 
