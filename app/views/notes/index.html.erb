@@ -1,0 +1,31 @@
+<%= render 'navigation'%>
+
+
+<div class="container"> 
+<h1>List of Notes</h1>
+
+
+<table class="tablt table striped">
+	<thead>
+	  <tr>
+	    <th>Title</th>
+	    <th>Body</th>
+	  </tr>
+	</thead>
+ 	<tbody>
+	  <% @notes.each do |note| %>
+	    <tr>
+			<td><%= note.title %></td>
+			<td><%= note.body %></td>
+			<td><%= link_to 'Show', note_path(note) %></td>
+			<td><%= link_to 'Edit', edit_note_path(note) %></td>
+			<td><%= link_to 'Delete', note_path(note),
+				method: :delete, data: { confirm: 'Are you sure?' } %>
+			</td>
+	    </tr>
+	  <% end %>
+	</tbody>
+</table>
+	<%= link_to 'Create New Note', new_note_path, class: 'btn btn-success' %>
+		
+</div>
