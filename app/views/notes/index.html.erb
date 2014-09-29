@@ -9,19 +9,20 @@
 	<thead>
 	  <tr>
 	    <th>Title</th>
-	    <th>Body</th>
 	    <th>Votes</th>
 	  </tr>
 	</thead>
  	<tbody>
 	  <% @notes.each do |note| %>
 	    <tr>
-			<td><%= note.title %></td>
-			<td><%= note.body %></td>
+			<td><%= link_to note.title, note_path(note)  %></td>
 			<td><%= pluralize(note.votes.count, "vote") %></td>
     		<td><%= button_to 'upvote', upvote_note_path(note), method: :post %></td>
-			<td><%= link_to 'Show', note_path(note) %></td>
-			<td><%= link_to 'Edit', edit_note_path(note) %></td>
+			<td>
+				<%= link_to edit_note_path(note), class: "btn btn-default" do %>
+					<i class="glyphicon glyphicon-wrench"></i>Edit
+				<% end %>
+			</td>
 			<td><%= link_to 'Delete', note_path(note),
 				method: :delete, data: { confirm: 'Are you sure?' } %>
 			</td>
