@@ -29,7 +29,7 @@ class NotesController < ApplicationController
   	@note = Note.find(params[:id])
 
   	if @note.update(note_params)
-  		redirect_to@note
+  		redirect_to @note
   	else
   		render 'edit'
   	end
@@ -43,6 +43,17 @@ class NotesController < ApplicationController
 
   	redirect_to notes_path
   end
+
+  def upvote
+    @note = Note.find(params[:id])
+    @note.votes.create
+    redirect_to notes_path
+  end
+
+
+
+  
+
 
 
 

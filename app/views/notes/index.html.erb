@@ -10,6 +10,7 @@
 	  <tr>
 	    <th>Title</th>
 	    <th>Body</th>
+	    <th>Votes</th>
 	  </tr>
 	</thead>
  	<tbody>
@@ -17,6 +18,8 @@
 	    <tr>
 			<td><%= note.title %></td>
 			<td><%= note.body %></td>
+			<td><%= pluralize(note.votes.count, "vote") %></td>
+    		<td><%= button_to 'upvote', upvote_note_path(note), method: :post %></td>
 			<td><%= link_to 'Show', note_path(note) %></td>
 			<td><%= link_to 'Edit', edit_note_path(note) %></td>
 			<td><%= link_to 'Delete', note_path(note),
